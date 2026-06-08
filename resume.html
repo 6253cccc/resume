@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>姜承志 — AI 产品经理</title>
+<style>
+  :root {
+    --bg: #faf8f5;
+    --text: #1a1a1a;
+    --text-muted: #6b6b6b;
+    --accent: #c8a45a;
+    --accent-dim: #e8d5b0;
+    --line: #e0dcd5;
+    --card: #ffffff;
+    --tag-bg: #f3f0e9;
+    --tag-text: #5c5545;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @font-face {
+    font-family: 'System';
+    src: local(-apple-system), local(BlinkMacSystemFont), local('Segoe UI'), local('PingFang SC'), local('Microsoft YaHei'), local(sans-serif);
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* --- Navigation --- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,248,245,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 52px;
+    font-size: 0.85rem;
+  }
+  nav .logo { font-weight: 600; letter-spacing: 0.5px; color: var(--text); }
+  nav .links { display: flex; gap: 2rem; }
+  nav .links a {
+    text-decoration: none; color: var(--text-muted);
+    transition: color 0.2s; font-size: 0.82rem;
+  }
+  nav .links a:hover { color: var(--text); }
+
+  /* --- Layout --- */
+  .container { max-width: 780px; margin: 0 auto; padding: 0 2rem; }
+
+  /* --- Hero --- */
+  .hero {
+    padding: 120px 0 64px;
+    text-align: center;
+  }
+  .hero .overline {
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: 2.8rem; font-weight: 700; letter-spacing: 4px;
+    margin-bottom: 12px; line-height: 1.3;
+  }
+  .hero .title-line {
+    font-size: 1.1rem; color: var(--text-muted); font-weight: 400;
+    margin-bottom: 32px;
+  }
+  .hero .contact-row {
+    display: flex; justify-content: center; gap: 2rem;
+    font-size: 0.88rem; color: var(--text-muted);
+  }
+  .hero .contact-row span { display: flex; align-items: center; gap: 6px; }
+
+  /* --- Section --- */
+  section { padding: 48px 0; }
+  .section-label {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px;
+    color: var(--accent); margin-bottom: 28px;
+  }
+
+  /* --- Experience Card --- */
+  .exp-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 32px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .exp-card:hover {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    transform: translateY(-1px);
+  }
+  .exp-card .company-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 8px;
+    flex-wrap: wrap; gap: 8px;
+  }
+  .exp-card .company { font-weight: 700; font-size: 1.05rem; }
+  .exp-card .date { font-size: 0.82rem; color: var(--text-muted); }
+  .exp-card .role { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px; }
+
+  .exp-card .sub-project {
+    margin-top: 24px; padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+  .exp-card .sub-project h4 {
+    font-size: 0.95rem; margin-bottom: 4px;
+  }
+  .exp-card .sub-project .sub-desc {
+    font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px;
+    font-style: italic;
+  }
+
+  .exp-card ul { padding-left: 20px; }
+  .exp-card li {
+    font-size: 0.9rem; margin-bottom: 8px; color: #333;
+  }
+  .exp-card li::marker { color: var(--accent); }
+  .exp-card li b { color: var(--text); }
+
+  /* --- Tags --- */
+  .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .tag {
+    background: var(--tag-bg); color: var(--tag-text);
+    font-size: 0.75rem; padding: 3px 12px; border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  /* --- Skills Grid --- */
+  .skills-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 600px) { .skills-grid { grid-template-columns: 1fr; } }
+
+  .skill-block {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 6px; padding: 24px;
+  }
+  .skill-block h4 { font-size: 0.8rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+  .skill-block p { font-size: 0.88rem; color: #444; line-height: 1.8; }
+
+  /* --- Art Section --- */
+  .art-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 600px) { .art-grid { grid-template-columns: 1fr; } }
+  .art-item {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 6px; padding: 24px;
+    position: relative; overflow: hidden;
+  }
+  .art-item .year {
+    font-size: 0.7rem; letter-spacing: 2px; color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .art-item h4 { font-size: 0.95rem; margin-bottom: 4px; }
+  .art-item p { font-size: 0.82rem; color: var(--text-muted); }
+
+  /* --- Quote / Self-Eval --- */
+  .eval-block {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 6px; padding: 36px 32px;
+    text-align: center;
+  }
+  .eval-block .big-quote {
+    font-size: 1.25rem; font-weight: 600; line-height: 1.7;
+    color: var(--text); margin-bottom: 20px;
+  }
+  .eval-block .sub-quote {
+    font-size: 0.9rem; color: var(--text-muted); line-height: 1.8;
+  }
+  .eval-block .sub-quote span { color: var(--accent); }
+
+  /* --- Footer --- */
+  footer {
+    text-align: center; padding: 64px 0 40px;
+    font-size: 0.78rem; color: var(--text-muted);
+  }
+
+  /* --- Animations --- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up {
+    animation: fadeUp 0.6s ease-out both;
+  }
+  .fade-up:nth-child(1) { animation-delay: 0.05s; }
+  .fade-up:nth-child(2) { animation-delay: 0.15s; }
+  .fade-up:nth-child(3) { animation-delay: 0.25s; }
+  .fade-up:nth-child(4) { animation-delay: 0.35s; }
+
+  /* --- Print --- */
+  @media print {
+    nav { display: none; }
+    body { background: #fff; font-size: 10pt; }
+    .hero { padding: 20px 0 32px; }
+    .exp-card { box-shadow: none; break-inside: avoid; }
+    .exp-card:hover { transform: none; box-shadow: none; }
+    .container { max-width: 100%; padding: 0 1rem; }
+    @page { margin: 1.5cm; }
+  }
+
+  /* --- Small touch: accent line on hover for exp cards --- */
+  .exp-card { position: relative; }
+  .exp-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--accent);
+    border-radius: 3px 0 0 3px;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .exp-card:hover::before { opacity: 1; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">JCZ</span>
+  <div class="links">
+    <a href="#experience">经历</a>
+    <a href="#skills">能力</a>
+    <a href="#art">跨界</a>
+  </div>
+</nav>
+
+<main class="container">
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="overline">AI Product Manager</div>
+    <h1>姜 承 志</h1>
+    <p class="title-line">从建筑空间到 AI 系统 — 我设计的是决策，不是界面</p>
+    <div class="contact-row">
+      <span>18810656253</span>
+      <span>jiangchengzhi6253@163.com</span>
+    </div>
+  </header>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="section-label">工作经历</div>
+
+    <!-- 360 -->
+    <div class="exp-card fade-up">
+      <div class="company-row">
+        <span class="company">360 集团</span>
+        <span class="date">2023.08 – 2026.02</span>
+      </div>
+      <div class="role">AI 产品经理</div>
+      <p style="font-size:0.9rem; color:#444; margin-bottom:8px;">
+        负责商易剪 APP 的 AI 产品架构与迭代策略，主导数字人一体机产品的对话系统设计。核心方向：将 Agent 调度、多模态生成与 Prompt 工程整合为可端到端运行的 AI 产品。
+      </p>
+
+      <!-- 商易剪 -->
+      <div class="sub-project">
+        <h4>商易剪 APP — AI 全链路自动化运营</h4>
+        <div class="sub-desc">"用户不需要工具，需要一个会运营的人"</div>
+        <ul>
+          <li><b>Agent 架构：</b>在 auto-glm-phone 基础上构建轻量 Agent —— 预定义 Tool 组合模板 + 首次成功路径缓存，模型仅在关键分叉点决策。设计暂停-问询-继续机制，模型遇到不确定性时主动向用户确认后继续执行。推理次数降低 60%，语义指令转化成功率 80%。</li>
+          <li><b>Prompt 体系：</b>设计三层分层架构 —— 底层行业知识（稳定）、中层脚本生成（模块化）、顶层个性化适配（动态注入）。每层独立评估，互不耦合，支持定点迭代。</li>
+          <li><b>多模型编排：</b>落地 Gemini 视频分镜解析 → Seedream 4.5 首尾帧生成 → Seedream 1.5 音画同步 → FFmpeg 拼接的完整复刻管线。Chatbot 内集成一键做视频、账号诊断、店铺诊断、一键装修抖音号等端到端闭环能力。</li>
+          <li><b>评估闭环：</b>以完播率与深度互动替代生成数量作为北极星，每两周一轮数据归因 → 定位层级 → 定点修复。</li>
+          <li><b>结果：</b>16 个版本完整交付，内容产出效率 2x，深度互动增长 400%。产品上线应用商城，支持抖音 + 快手 + 小红书三平台一键发布。</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">Phone Agent</span>
+          <span class="tag">Gemini + Seedream</span>
+          <span class="tag">Prompt 分层</span>
+          <span class="tag">0→1 全链路</span>
+          <span class="tag">多平台发布</span>
+        </div>
+      </div>
+
+      <!-- 数字人 -->
+      <div class="sub-project">
+        <h4>数字人一体机 — 金融 / 政务场景</h4>
+        <div class="sub-desc">虚实结合的沉浸式交互设备</div>
+        <ul>
+          <li><b>对话策略：</b>定义多模态对话全链路 —— 意图识别 → 知识检索 → 情感适配 → 业务闭环。针对金融（合规优先）与政务（引导优先）分别设计对话分支，复用同一底层框架。</li>
+          <li><b>交付结果：</b>项目收入 2700 万，客户续约而非替换为竞品。</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">多模态交互</span>
+          <span class="tag">对话系统</span>
+          <span class="tag">B2B 交付</span>
+          <span class="tag">金融 / 政务</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 清华院 -->
+    <div class="exp-card fade-up">
+      <div class="company-row">
+        <span class="company">清华大学建筑设计研究院</span>
+        <span class="date">2016.07 – 2023.08</span>
+      </div>
+      <div class="role">建筑师 + 数字空间负责人</div>
+      <ul>
+        <li>主持深圳 SIC 超级总部中心、亚投行总部等大型项目的方案设计与多方协调。建筑学训练的核心能力——在多重约束中找最优解——与 AI PM 的日常决策模式<b>高度同构</b>。</li>
+        <li>主导事务所数字空间转型：将物理空间设计逻辑转化为数字虚拟交互系统，独立完成从空间叙事到技术架构的翻译——这段经历直接促成了职业转型。</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">复杂系统设计</span>
+        <span class="tag">数字孪生</span>
+        <span class="tag">项目管理</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="section-label">核心能力</div>
+    <div class="skills-grid">
+      <div class="skill-block fade-up">
+        <h4>AI 产品</h4>
+        <p>Agent 架构设计 ｜ Prompt 工程体系 ｜ 多模态交互 ｜ AIGC 内容生成 ｜ RPA 自动化</p>
+      </div>
+      <div class="skill-block fade-up">
+        <h4>技术理解</h4>
+        <p>LLM 原理与应用 ｜ ReAct / Plan-Execute ｜ AutoGLM ｜ 模型成本评估</p>
+      </div>
+      <div class="skill-block fade-up">
+        <h4>数据与工具</h4>
+        <p>SQL ｜ 产品指标体系设计 ｜ AB 实验框架 ｜ Figma ｜ Xmind</p>
+      </div>
+      <div class="skill-block fade-up">
+        <h4>语言</h4>
+        <p>英语六级，可独立阅读 ArXiv 论文与 Anthropic / OpenAI 技术文档</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Art & Curation -->
+  <section id="art">
+    <div class="section-label">跨界 — 审美是无法伪装的竞争力</div>
+    <div class="art-grid">
+      <div class="art-item fade-up">
+        <div class="year">2019 / 2020</div>
+        <h4>北京国际设计周 · 策展人 & 主创艺术家</h4>
+        <p>独立策展并创作"飞跃中轴""白塔之翼"公共艺术装置</p>
+      </div>
+      <div class="art-item fade-up">
+        <div class="year">2021</div>
+        <h4>《↑·2021》先锋艺术展 · 联合策展人</h4>
+        <p>策划并统筹 10 位先锋艺术家的跨界联展</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Self Evaluation -->
+  <section>
+    <div class="eval-block fade-up">
+      <div class="big-quote">
+        "建筑学教会我在冲突中找平衡。<br>AI PM 每天面对的，是同一道题换了主语。"
+      </div>
+      <div class="sub-quote">
+        三层 Prompt 分层架构 · Agent 工具链设计 · 评估驱动的迭代闭环<br>
+        <span>三件事构成一套可迁移的 AI 产品方法论。</span><br>
+        不只关心「AI 能做什么」，更关心「做了之后，产品能不能靠自己活下来」。
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    姜承志 · AI 产品经理 · 2025
+  </footer>
+
+</main>
+
+<script>
+  // Subtle scroll-triggered animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.exp-card, .skill-block, .art-item, .eval-block').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
