@@ -304,6 +304,8 @@
   .fade-up:nth-child(3) { animation-delay: 0.25s; }
   .fade-up:nth-child(4) { animation-delay: 0.35s; }
 
+  .print-footer { display: none; }
+
   /* --- Print --- */
   @media print {
     @page { margin: 1cm 1.5cm; size: A4; }
@@ -386,14 +388,13 @@
     #skills { page-break-before: always; }
 
     /* Fixed footer — appears on every printed page */
-    .print-footer {
-      display: none;
-      position: fixed; bottom: 0; left: 0; right: 0;
-      text-align: center; font-size: 7pt; color: #888;
-      padding: 4px 0;
-    }
     @media print {
-      .print-footer { display: block; }
+      .print-footer {
+        display: block;
+        position: fixed; bottom: 0; left: 0; right: 0;
+        text-align: center; font-size: 7pt; color: #888;
+        padding: 4px 0;
+      }
     }
 
     /* Kill animations */
