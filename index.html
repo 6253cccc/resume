@@ -170,6 +170,65 @@
     gap: 16px;
   }
   @media (max-width: 600px) { .art-grid { grid-template-columns: 1fr; } }
+
+  /* --- Mobile --- */
+  @media (max-width: 640px) {
+    body { font-size: 15px; line-height: 1.65; }
+
+    /* Nav */
+    nav { padding: 0 1rem; height: 44px; font-size: 0.78rem; }
+    nav .links { gap: 1.2rem; }
+    nav .links a { font-size: 0.75rem; }
+
+    /* Hero — stack vertically */
+    .hero {
+      flex-direction: column; text-align: center;
+      padding: 90px 0 40px; gap: 0;
+    }
+    .hero .avatar { width: 100px; height: 100px; margin-bottom: 16px; }
+    .hero .overline { margin-bottom: 8px; }
+    .hero h1 { font-size: 2rem; letter-spacing: 2px; }
+    .hero .title-line { font-size: 0.95rem; margin-bottom: 14px; }
+    .hero .contact-row { justify-content: center; flex-wrap: wrap; gap: 0.8rem; font-size: 0.8rem; }
+
+    /* Sections */
+    section { padding: 32px 0; }
+    .section-label { margin-bottom: 16px; }
+    .container { padding: 0 1rem; }
+
+    /* Cards */
+    .exp-card { padding: 20px; margin-bottom: 14px; }
+    .exp-card .company-row { flex-direction: column; gap: 2px; }
+    .exp-card li { font-size: 0.85rem; }
+
+    /* Other products — stack */
+    .other-item { flex-direction: column; gap: 0; margin-bottom: 6px; }
+    .other-name { min-width: auto; }
+
+    /* Skills */
+    .skills-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .skill-block { padding: 16px; }
+    .skill-block h4 { margin-bottom: 8px; }
+    .skill-block p { font-size: 0.8rem; line-height: 1.6; }
+
+    /* Tags */
+    .tag { font-size: 0.7rem; padding: 2px 10px; }
+
+    /* Eval */
+    .eval-block { padding: 24px 20px; }
+    .eval-block .big-quote { font-size: 1rem; }
+    .eval-block .sub-quote { font-size: 0.82rem; max-width: none; }
+
+    /* Footer */
+    footer { padding: 40px 0 32px; }
+  }
+
+  @media (max-width: 400px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.7rem; }
+    .hero .avatar { width: 80px; height: 80px; }
+  }
+
   .art-item {
     background: var(--card); border: 1px solid var(--line);
     border-radius: 6px; padding: 24px;
