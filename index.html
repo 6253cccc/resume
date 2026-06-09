@@ -160,6 +160,12 @@
   .skill-block {
     background: var(--card); border: 1px solid var(--line);
     border-radius: 6px; padding: 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .skill-block:hover {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    transform: translateY(-1px);
   }
   .skill-block h4 { font-size: 0.8rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
   .skill-block p { font-size: 0.88rem; color: #444; line-height: 1.8; }
@@ -233,6 +239,12 @@
     background: var(--card); border: 1px solid var(--line);
     border-radius: 6px; padding: 24px;
     position: relative; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .art-item:hover {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    transform: translateY(-1px);
   }
   .art-item .year {
     font-size: 0.7rem; letter-spacing: 2px; color: var(--accent);
