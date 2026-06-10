@@ -336,34 +336,34 @@
 
   /* --- Print --- */
   @media print {
-    @page { margin: 1cm 1.5cm; size: A4; }
+    @page { margin: 0.6cm 1.2cm; size: A4; }
 
-    body { background: #fff; font-size: 9pt; color: #1a1a1a; line-height: 1.55; }
+    body { background: #fff; font-size: 10pt; color: #1a1a1a; line-height: 1.55; }
     nav { display: none; }
 
     .container { max-width: 100%; padding: 0; }
 
     /* Hero — compact side-by-side */
-    .hero { padding: 0 0 14px; display: flex; align-items: center; gap: 24px; }
+    .hero { padding: 0 0 20px; display: flex; align-items: center; gap: 24px; }
     .hero .avatar { width: 80px; height: 80px; margin: 0; border: 1px solid #ccc; flex-shrink: 0; }
     .hero .hero-text { flex: 1; }
     .hero .overline { font-size: 7pt; letter-spacing: 2px; margin-bottom: 6px; }
-    .hero h1 { font-size: 1.6rem; letter-spacing: 2px; margin-bottom: 3px; }
-    .hero .title-line { font-size: 9pt; margin-bottom: 8px; }
+    .hero h1 { font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 3px; }
+    .hero .title-line { font-size: 8.5pt; margin-bottom: 8px; }
     .hero .contact-row { font-size: 8pt; gap: 1.2rem; }
 
     /* Sections — tight */
-    section { padding: 12px 0; }
+    section { padding: 5px 0; }
     .section-label { font-size: 7pt; letter-spacing: 2px; margin-bottom: 10px; color: #888; }
 
     /* Cards — plain */
     .exp-card { box-shadow: none; border: 1px solid #ddd; padding: 16px 20px; margin-bottom: 10px; break-inside: avoid; page-break-inside: avoid; }
     .exp-card:hover { transform: none; box-shadow: none; }
     .exp-card::before { display: none; }
-    .exp-card .company { font-size: 10pt; }
-    .exp-card .date { font-size: 7.5pt; }
-    .exp-card .role { font-size: 8pt; margin-bottom: 8px; }
-    .exp-card .summary { font-size: 8pt; margin-bottom: 4px; color: #444; }
+    .exp-card .company { font-size: 10.5pt; }
+    .exp-card .date { font-size: 8pt; }
+    .exp-card .role { font-size: 8.5pt; margin-bottom: 10px; }
+    .exp-card .summary { font-size: 8.5pt; margin-bottom: 6px; color: #444; }
 
     /* Sub-projects — compact */
     .exp-card .sub-project { margin-top: 10px; padding-top: 10px; border-top: 1px solid #ddd; }
@@ -372,7 +372,7 @@
 
     /* Lists */
     .exp-card ul { padding-left: 16px; }
-    .exp-card li { font-size: 8pt; margin-bottom: 3px; color: #333; }
+    .exp-card li { font-size: 8.5pt; margin-bottom: 4px; color: #333; }
     .exp-card li::marker { color: #999; }
 
     /* Tags — simple text */
@@ -413,7 +413,7 @@
     footer { display: none; }
 
     /* Page breaks */
-    #skills { page-break-before: always; }
+    #education { page-break-before: always; }
 
     /* Fixed footer — appears on every printed page */
     @media print {
@@ -560,7 +560,7 @@
         <span class="company">中国矿业大学（北京）</span>
         <span class="date">2011.09 – 2016.06</span>
       </div>
-      <div class="role">建筑学 本科</div>
+      <div class="role">建筑学 本科（五年制）</div>
     </div>
   </section>
 
